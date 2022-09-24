@@ -1,3 +1,3 @@
 exports.handler = async function(event, context, callback) {
-    return 'hello world';
+    return 'happy world';
 }
