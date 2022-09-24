@@ -25,6 +25,11 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
+      - name: Install node.js
+        uses: actions/node@v1
+        with:
+          node-version: '14.x'
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
