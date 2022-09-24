@@ -40,6 +40,11 @@ jobs:
       - name: Insatalling serverless
         run: npm install -g serverless
 
+      - name: Install npm dependecies
+        run: npm ci
+
+      - name: Deploy serverless
+        run: sls deploy
 
   # # This workflow contains a single job called "build"
   # qa:
