@@ -1,0 +1,11 @@
+
+service: myService
+ 
+provider:
+  name: aws
+  runtime: nodejs14.x
+ 
+functions:
+  functionOne:
+    handler: handler.functionOne
+    description: optional description for your Lambda

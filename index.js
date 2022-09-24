@@ -1,3 +1,3 @@
-exports.handler = async function(event, context, callback) {
+exports.functionOne = async function(event, context, callback) {
     return 'happy world';
 }
