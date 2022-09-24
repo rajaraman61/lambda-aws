@@ -37,11 +37,21 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.REGION }}
 
-      - name: Insatalling serverless
-        run: npm install -g serverless
+      - name: Deploy AWS Lambda function
+        run: |
+          echo "Zip the file"
+          zip function.zip index.js
+          echo "List de files to check zip"
+          ls -la
+          echo "Create role for lambda"
+          aws iam create-role --role-name lambda-role --assume-role-policy-document file://role.json
+          echo "Create lambda and push the zip"
+          aws lambda create-function --function-name hello-world --zip-file fileb://function.zip --runtime nodejs8.10 --role arn:aws:iam::756308879032:role/lambda-role --handler index.handler
+          echo "Invoke the lambda"
+          aws lambda invoke --function-name hello-world outputfile.txt
 
-      - name: Deploy serverless
-        run: sls deploy
+
+
 
   # # This workflow contains a single job called "build"
   # qa:
