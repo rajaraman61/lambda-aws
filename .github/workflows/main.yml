@@ -35,6 +35,7 @@ jobs:
       - name: TEST AWS
         run: |
           aws --version
+          aws s3 mb s3://orai
 
   # # This workflow contains a single job called "build"
   # qa:
