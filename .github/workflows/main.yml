@@ -46,7 +46,7 @@ jobs:
           # echo "Create role for lambda"
           # aws iam create-role --role-name lambda-role --assume-role-policy-document file://role.json
           echo "Create lambda and push the zip"
-          aws lambda create-function --function-name hello-world --zip-file file://function.zip --runtime nodejs14.x --role arn:aws:iam::***:role/lambda-role --handler index.handler
+          aws lambda create-function --function-name hello-world --zip-file fileb://function.zip --runtime nodejs14.x --role arn:aws:iam::***:role/lambda-role --handler index.handler
           echo "Invoke the lambda"
           aws lambda invoke --function-name hello-world outputfile.txt
 
