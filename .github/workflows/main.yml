@@ -29,7 +29,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '14.x'
-
+        
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -37,10 +37,8 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.REGION }}
 
-      - name: TEST AWS
-        run: |
-          aws --version
-          aws s3api create-bucket --bucket orai-bucket --region us-east-1
+      - name: Insatalling serverless
+        run: npm install -g serverless
 
 
   # # This workflow contains a single job called "build"
