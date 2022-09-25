@@ -9,3 +9,9 @@ functions:
   functionOne:
     handler: handler.functionOne
     description: optional description for your Lambda
+    events:
+      - httpApi:
+          path: /
+          method: get
+
+
